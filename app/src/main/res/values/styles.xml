@@ -1,0 +1,43 @@
+<resources>
+
+	<!-- Base application theme. -->
+	<style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+		<!-- Customize your theme here. -->
+		<item name="colorPrimary">@color/colorPrimary</item>
+		<item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+		<item name="colorAccent">@color/colorAccent</item>
+	</style>
+
+	<style name="ecomAppTheme" parent="AppTheme">
+		<!--<item name="android:windowActionBar">false</item>
+		<item name="android:windowNoTitle">true</item>
+		<item name="android:windowDrawsSystemBarBackgrounds">true</item>-->
+		<item name="android:statusBarColor">@color/statusBarTint</item>
+		<item name="android:windowLightStatusBar">true</item>
+		<item name="android:navigationBarColor">@color/black</item>
+		<!--<item name="android:fontFamily">@font/poppins</item>-->
+	</style>
+	
+	<style name="ecomAppTheme_Landing" parent="ecomAppTheme">
+		<item name="android:statusBarColor">@color/themeColor</item>
+		<item name="android:windowLightStatusBar">false</item>
+		<item name="android:navigationBarColor">@color/themeColor</item>
+	</style>
+	
+	<style name="btnStyleFilled" parent="ecomAppTheme">
+		<item name="android:buttonStyle">?attr/borderlessButtonStyle</item>
+		<item name="android:background">@drawable/btn_rounded_filled</item>
+		<item name="android:fontFamily">@font/poppins</item>
+		<item name="android:textColor">@color/white</item>
+		<item name="android:textSize">17sp</item>
+	</style>
+	
+	<style name="btnStyleOutlined" parent="ecomAppTheme">
+		<item name="android:buttonStyle">?attr/borderlessButtonStyle</item>
+		<item name="android:background">@drawable/btn_rounded_outlined</item>
+		<item name="android:fontFamily">@font/poppins</item>
+		<item name="android:textColor">@color/themeColor</item>
+		<item name="android:textSize">17sp</item>
+	</style>
+
+</resources>

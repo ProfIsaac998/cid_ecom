@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--Format: #AARRGGBB-->
+<resources>
+	<color name="colorPrimary">#008577</color>
+    <color name="colorPrimaryDark">#00574B</color>
+	<color name="colorAccent">#FF1A9C</color>
+
+	<color name="black">#000000</color>
+	<color name="white">#FFFFFF</color>
+	<color name="transparent">#00000000</color>
+	<color name="statusBarTint">#E4E4E4</color>
+	<color name="themeColor">#FF1A9C</color>
+	<color name="themeColorDarken">#CC157D</color>
+</resources>

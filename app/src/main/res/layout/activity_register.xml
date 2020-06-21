@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:app="http://schemas.android.com/apk/res-auto"
+	xmlns:tools="http://schemas.android.com/tools"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	android:background="@color/white"
+	tools:context=".Register">
+	
+	<ScrollView
+		android:layout_width="0dp"
+		android:layout_height="0dp"
+		app:layout_constraintBottom_toBottomOf="parent"
+		app:layout_constraintLeft_toLeftOf="parent"
+		app:layout_constraintRight_toRightOf="parent"
+		app:layout_constraintTop_toTopOf="parent">
+		
+		<android.support.constraint.ConstraintLayout
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:paddingBottom="30dp">
+			
+			<ImageView
+				android:id="@+id/logo"
+				android:layout_width="80dp"
+				android:layout_height="80dp"
+				android:layout_marginTop="35dp"
+				app:layout_constraintLeft_toLeftOf="parent"
+				app:layout_constraintRight_toRightOf="parent"
+				app:layout_constraintTop_toTopOf="parent"
+				app:srcCompat="@drawable/logo" />
+			
+			<TextView
+				android:id="@+id/appName"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:fontFamily="@font/poppins"
+				android:text="@string/app_name"
+				android:textAlignment="center"
+				android:textAppearance="@style/TextAppearance.AppCompat"
+				android:textColor="@color/themeColor"
+				android:textSize="36sp"
+				android:textStyle="bold"
+				app:layout_constraintLeft_toLeftOf="parent"
+				app:layout_constraintRight_toRightOf="parent"
+				app:layout_constraintTop_toBottomOf="@+id/logo" />
+			
+			<EditText
+				android:id="@+id/fldUsername"
+				android:layout_width="0dp"
+				android:layout_height="wrap_content"
+				android:layout_marginLeft="30dp"
+				android:layout_marginTop="35dp"
+				android:layout_marginRight="30dp"
+				android:fontFamily="@font/poppins"
+				android:hint="Username"
+				android:inputType="textPersonName"
+				android:textSize="15sp"
+				app:layout_constraintLeft_toLeftOf="parent"
+				app:layout_constraintRight_toRightOf="parent"
+				app:layout_constraintTop_toBottomOf="@+id/appName" />
+			
+			<EditText
+				android:id="@+id/fldName"
+				android:layout_width="0dp"
+				android:layout_height="wrap_content"
+				android:layout_marginLeft="30dp"
+				android:layout_marginRight="30dp"
+				android:fontFamily="@font/poppins"
+				android:hint="Name"
+				android:inputType="textPersonName"
+				android:textSize="15sp"
+				app:layout_constraintLeft_toLeftOf="parent"
+				app:layout_constraintRight_toRightOf="parent"
+				app:layout_constraintTop_toBottomOf="@+id/fldUsername" />
+			
+			<EditText
+				android:id="@+id/fldEmail"
+				android:layout_width="0dp"
+				android:layout_height="wrap_content"
+				android:layout_marginLeft="30dp"
+				android:layout_marginRight="30dp"
+				android:fontFamily="@font/poppins"
+				android:hint="Email"
+				android:inputType="textEmailAddress"
+				android:textSize="15sp"
+				app:layout_constraintLeft_toLeftOf="parent"
+				app:layout_constraintRight_toRightOf="parent"
+				app:layout_constraintTop_toBottomOf="@id/fldName" />
+			
+			<EditText
+				android:id="@+id/fldPassword"
+				android:layout_width="0dp"
+				android:layout_height="wrap_content"
+				android:layout_marginLeft="30dp"
+				android:layout_marginRight="30dp"
+				android:fontFamily="@font/poppins"
+				android:hint="Password"
+				android:inputType="textPassword"
+				android:textSize="15sp"
+				app:layout_constraintLeft_toLeftOf="parent"
+				app:layout_constraintRight_toRightOf="parent"
+				app:layout_constraintTop_toBottomOf="@+id/fldEmail" />
+			
+			<EditText
+				android:id="@+id/fldConfirmPassword"
+				android:layout_width="0dp"
+				android:layout_height="wrap_content"
+				android:layout_marginLeft="30dp"
+				android:layout_marginRight="30dp"
+				android:fontFamily="@font/poppins"
+				android:hint="Confirm Password"
+				android:inputType="textPassword"
+				android:textSize="15sp"
+				app:layout_constraintLeft_toLeftOf="parent"
+				app:layout_constraintRight_toRightOf="parent"
+				app:layout_constraintTop_toBottomOf="@+id/fldPassword" />
+			
+			<EditText
+				android:id="@+id/fldContactNum"
+				android:layout_width="0dp"
+				android:layout_height="wrap_content"
+				android:layout_marginLeft="30dp"
+				android:layout_marginRight="30dp"
+				android:fontFamily="@font/poppins"
+				android:hint="Contact Number"
+				android:inputType="number"
+				android:textSize="15sp"
+				app:layout_constraintLeft_toLeftOf="parent"
+				app:layout_constraintRight_toRightOf="parent"
+				app:layout_constraintTop_toBottomOf="@+id/fldConfirmPassword" />
+			
+			<EditText
+				android:id="@+id/fldDOB"
+				android:layout_width="0dp"
+				android:layout_height="wrap_content"
+				android:layout_marginLeft="30dp"
+				android:layout_marginRight="30dp"
+				android:fontFamily="@font/poppins"
+				android:hint="Date of Birth"
+				android:inputType="date"
+				android:textSize="15sp"
+				app:layout_constraintLeft_toLeftOf="parent"
+				app:layout_constraintRight_toRightOf="parent"
+				app:layout_constraintTop_toBottomOf="@+id/fldContactNum" />
+			
+			<Button
+				android:id="@+id/btnRegister"
+				style="@style/btnStyleFilled"
+				android:layout_width="0dp"
+				android:layout_height="wrap_content"
+				android:layout_marginLeft="33dp"
+				android:layout_marginTop="35dp"
+				android:layout_marginRight="33dp"
+				android:onClick="btnRegisterClicked"
+				android:text="Register"
+				app:layout_constraintLeft_toLeftOf="parent"
+				app:layout_constraintRight_toRightOf="parent"
+				app:layout_constraintTop_toBottomOf="@id/fldDOB" />
+			
+			<Button
+				android:id="@+id/btnLogin"
+				style="@style/btnStyleOutlined"
+				android:layout_width="0dp"
+				android:layout_height="wrap_content"
+				android:layout_marginLeft="33dp"
+				android:layout_marginTop="15dp"
+				android:layout_marginRight="33dp"
+				android:onClick="btnLoginClicked"
+				android:text="Back To Login"
+				app:layout_constraintLeft_toLeftOf="parent"
+				app:layout_constraintRight_toRightOf="parent"
+				app:layout_constraintTop_toBottomOf="@id/btnRegister" />
+		
+		</android.support.constraint.ConstraintLayout>
+	</ScrollView>
+	
+	<android.support.constraint.ConstraintLayout
+		android:id="@+id/loadingOverlay"
+		android:layout_width="match_parent"
+		android:layout_height="match_parent"
+		android:background="#AA000000"
+		android:clickable="true"
+		android:elevation="1000dp"
+		android:visibility="gone">
+		
+		<ProgressBar
+			android:id="@+id/progressBar"
+			style="@style/Widget.AppCompat.ProgressBar"
+			android:layout_width="65dp"
+			android:layout_height="65dp"
+			android:layout_marginBottom="50dp"
+			android:indeterminateTint="@color/themeColor"
+			app:layout_constraintBottom_toBottomOf="parent"
+			app:layout_constraintLeft_toLeftOf="parent"
+			app:layout_constraintRight_toRightOf="parent"
+			app:layout_constraintTop_toTopOf="parent" />
+		
+		<TextView
+			android:id="@+id/txtLoadingOverlay"
+			android:layout_width="0dp"
+			android:layout_height="wrap_content"
+			android:layout_marginLeft="30dp"
+			android:layout_marginTop="15dp"
+			android:layout_marginRight="30dp"
+			android:fontFamily="@font/poppins"
+			android:text="Loading message here..."
+			android:textAlignment="center"
+			android:textAppearance="@style/TextAppearance.AppCompat"
+			android:textColor="@color/white"
+			android:textSize="17sp"
+			app:layout_constraintLeft_toLeftOf="parent"
+			app:layout_constraintRight_toRightOf="parent"
+			app:layout_constraintTop_toBottomOf="@id/progressBar" />
+	</android.support.constraint.ConstraintLayout>
+
+</android.support.constraint.ConstraintLayout>
