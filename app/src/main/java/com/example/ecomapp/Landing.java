@@ -7,10 +7,14 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 
+import com.example.ecomapp.Data.Config;
 import com.example.ecomapp.Data.GlobalData;
+import com.example.ecomapp.Helper.Crypt;
 import com.example.ecomapp.Helper.DB;
 import com.example.ecomapp.Helper.DB.Response;
 import com.example.ecomapp.Helper.DB.ResponseListener;
+
+import org.json.JSONObject;
 
 import java.util.HashMap;
 
@@ -25,9 +29,10 @@ public class Landing extends AppActivity
 		setContentView(R.layout.activity_landing);
 		
 		// Loading
-		DB.init(this);
+		DB.init(this, Config.DB_KEY);
 		
-		DB.query("login", new HashMap<String, String>()
+		// Test
+		/*DB.query("login", new HashMap<String, String>()
 		{{
 			put("username", "");
 			put("password", "");
@@ -44,6 +49,7 @@ public class Landing extends AppActivity
 				
 				startActivity(new Intent(activity, Login.class));
 			}
-		});
+		});*/
+		startActivity(new Intent(activity, Login.class));
 	}
 }

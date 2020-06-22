@@ -77,6 +77,7 @@ public class Login extends AppActivity
 						{
 							//GlobalData.user = User.serialiseToObj((JSONObject)response.data);
 							GlobalData.accessToken = ((JSONObject)resp.data).getString("access_token");
+							DB.cryptKey = ((JSONObject)resp.data).getString("key");
 							MessageUI.toast("Logged in", Toast.LENGTH_LONG);
 							
 							activity.finish();

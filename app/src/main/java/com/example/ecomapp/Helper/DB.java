@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.text.TextUtils;
+import android.util.Base64;
 import android.util.Log;
 import android.view.View;
 
@@ -50,19 +51,31 @@ public class DB
 		void onErrorResponse(VolleyError error);
 	}
 	
+	public static String cryptKey = "";
 	static RequestQueue queue = null;
 	
-	public static void init(Context context)
+	public static void init(Context context, String key)
 	{
 		queue = Volley.newRequestQueue(context);
+		cryptKey = key;
 	}
 	
 	public static void request(final String urlPage, Map<String, String> params, final Map<String, String> headers, final ResponseListener respLis, final OkResponseListener okLis, final ErrorResponseListener errLis)
 	{
 		try
 		{
+			String[] cip = Crypt.encrypt(cryptKey, new JSONObject(params).toString());
+			
+			JSONObject cJson = new JSONObject();
+			cJson.put("iv", cip[0]);
+			cJson.put("value", cip[1]);
+			
+			JSONObject p = new JSONObject();
+			p.put("cipher", new String(Base64.encode(cJson.toString().getBytes(), Base64.DEFAULT)));
+			Log.d("Resp", new String(Base64.encode(cJson.toString().getBytes(), Base64.DEFAULT)));
+			
 			JsonObjectRequest req = new JsonObjectRequest(Request.Method.POST, Config.DB_URL + "/" + urlPage,
-					new JSONObject(params),
+					p,
 					new com.android.volley.Response.Listener<JSONObject>()
 					{
 						@Override
@@ -72,7 +85,7 @@ public class DB
 							
 							Response resp = parseResponse(response);
 							
-							if(resp.code == Config.DB_UNAUTH_CODE)
+							if(resp.code == Config.DB_UNAUTH_CODE || resp.code == Config.DB_DECRYPT_FAIL_CODE)
 							{
 								GlobalData.currentActivity.finish();
 								GlobalData.currentActivity.startActivity(new Intent(GlobalData.currentActivity, Login.class).setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK));
@@ -82,7 +95,7 @@ public class DB
 							else
 							{
 								if(okLis != null) okLis.onOkResponse(resp);
-								if(respLis != null) respLis.onResponse(true, parseResponse(response));
+								if(respLis != null) respLis.onResponse(true, resp);
 							}
 						}
 					},
@@ -115,12 +128,15 @@ public class DB
 		}
 	}
 	
-	public static Response parseResponse(JSONObject json)
+	public static Response parseResponse(JSONObject _json)
 	{
 		Response res = new Response();
 		
 		try
 		{
+			String plainText = decrypt(_json.getString("cipher"));
+			JSONObject json = new JSONObject(plainText);
+			
 			res.status = json.getInt("status");
 			if(!json.isNull("code")) res.code = json.getInt("code");
 			if(!json.isNull("message"))
@@ -149,6 +165,24 @@ public class DB
 		}
 		
 		return res;
+	}
+	
+	private static String decrypt(String cipherText)
+	{
+		String ret = "";
+		
+		try
+		{
+			JSONObject cJson = new JSONObject(new String(Base64.decode(cipherText, Base64.DEFAULT)));
+			
+			ret = Crypt.decrypt(cryptKey, cJson.getString("iv"), cJson.getString("value"));
+		}
+		catch(Exception e)
+		{
+			Log.e("DB.parseResponse", e.toString());
+		}
+		
+		return ret;
 	}
 	
 	public static void query(String urlPage)
