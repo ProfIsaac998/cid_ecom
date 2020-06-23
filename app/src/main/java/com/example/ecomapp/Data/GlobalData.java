@@ -9,6 +9,7 @@ public class GlobalData
 	public static String fcmToken = "";
 	public static String accessToken = "";
 	public static int userID = 0;
+	public static String userName = "";
 	
 	public static Activity currentActivity = null;
 	public static SharedPreferences prefs = null;

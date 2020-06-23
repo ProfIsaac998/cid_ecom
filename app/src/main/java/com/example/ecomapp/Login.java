@@ -56,11 +56,7 @@ public class Login extends AppActivity
 		final EditText fldUsername = (EditText)findViewById(R.id.fldUsername);
 		final EditText fldPassword = (EditText)findViewById(R.id.fldPassword);
 		
-		DB.query("login", new HashMap<String, String>()
-		{{
-			put("username", fldUsername.getText().toString());
-			put("password", fldPassword.getText().toString());
-		}}, new DB.ResponseListener()
+		DB.query("login", new DB.ResponseListener()
 		{
 			@Override
 			public void onResponse(boolean ok, Object response)
@@ -105,7 +101,11 @@ public class Login extends AppActivity
 					}
 				}
 			}
-		});
+		}, new HashMap<String, String>()
+		{{
+			put("username", fldUsername.getText().toString());
+			put("password", fldPassword.getText().toString());
+		}});
 	}
 	
 	public void btnRegisterClicked(View v)

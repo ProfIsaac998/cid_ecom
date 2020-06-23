@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:app="http://schemas.android.com/apk/res-auto"
+	xmlns:tools="http://schemas.android.com/tools"
+	android:id="@+id/productItemView"
+	android:layout_width="match_parent"
+	android:layout_height="wrap_content"
+	android:layout_marginRight="8dp"
+	android:layout_marginBottom="8dp">
+	
+	<ImageView
+		android:id="@+id/imgProduct"
+		android:layout_width="wrap_content"
+		android:layout_height="0dp"
+		android:scaleType="centerCrop"
+		app:layout_constraintDimensionRatio="1"
+		app:layout_constraintEnd_toEndOf="parent"
+		app:layout_constraintStart_toStartOf="parent"
+		app:layout_constraintTop_toTopOf="parent"
+		tools:srcCompat="@tools:sample/backgrounds/scenic" />
+	
+	
+	<android.support.constraint.ConstraintLayout
+		android:id="@+id/prodBottom"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:background="@color/white"
+		android:padding="10dp"
+		app:layout_constraintEnd_toEndOf="parent"
+		app:layout_constraintStart_toStartOf="parent"
+		app:layout_constraintTop_toBottomOf="@id/imgProduct">
+		
+		<TextView
+			android:id="@+id/txtProdName"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:fontFamily="@font/poppins"
+			android:text="RGB Soft Gaming Mouse Pad Large Oversized LED E..."
+			android:textAppearance="@style/TextAppearance.AppCompat"
+			android:textColor="@color/black"
+			android:textSize="11sp"
+			android:textStyle="bold"
+			app:layout_constraintStart_toStartOf="parent"
+			app:layout_constraintTop_toTopOf="parent" />
+		
+		<TextView
+			android:id="@+id/txtProdPrice"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_marginTop="7.5dp"
+			android:fontFamily="@font/poppins"
+			android:text="RM24.99"
+			android:textAlignment="center"
+			android:textAppearance="@style/TextAppearance.AppCompat"
+			android:textColor="@color/themeColor"
+			android:textSize="16sp"
+			app:layout_constraintStart_toStartOf="parent"
+			app:layout_constraintTop_toBottomOf="@id/txtProdName" />
+		
+		<TextView
+			android:id="@+id/txtProdSold"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:fontFamily="@font/poppins"
+			android:text="1530 sold"
+			android:textAlignment="center"
+			android:textAppearance="@style/TextAppearance.AppCompat"
+			android:textColor="@color/themeLightGray"
+			android:textSize="10sp"
+			app:layout_constraintBottom_toBottomOf="@id/txtProdPrice"
+			app:layout_constraintRight_toRightOf="@+id/prodBottom"
+			app:layout_constraintTop_toTopOf="@id/txtProdPrice" />
+	
+	</android.support.constraint.ConstraintLayout>
+</android.support.constraint.ConstraintLayout>

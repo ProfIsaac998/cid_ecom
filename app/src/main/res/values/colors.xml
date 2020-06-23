@@ -11,4 +11,5 @@
 	<color name="statusBarTint">#E4E4E4</color>
 	<color name="themeColor">#FF1A9C</color>
 	<color name="themeColorDarken">#CC157D</color>
+	<color name="themeLightGray">#A1A1A1</color>
 </resources>

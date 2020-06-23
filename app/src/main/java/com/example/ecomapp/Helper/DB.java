@@ -187,21 +187,21 @@ public class DB
 	
 	public static void query(String urlPage)
 	{
-		query(urlPage, new HashMap<String, String>(), null, null, null);
+		query(urlPage, null, new HashMap<String, String>(), null, null);
 	}
-	public static void query(String urlPage, Map<String, String> params)
+	public static void query(String urlPage, ResponseListener respLis)
 	{
-		query(urlPage, params, null, null, null);
+		query(urlPage, respLis, new HashMap<String, String>(), null, null);
 	}
-	public static void query(String urlPage, Map<String, String> params, ResponseListener respLis)
+	public static void query(String urlPage, ResponseListener respLis, Map<String, String> params)
 	{
-		query(urlPage, params, respLis, null, null);
+		query(urlPage, respLis, params, null, null);
 	}
-	public static void query(String urlPage, Map<String, String> params, ResponseListener respLis, OkResponseListener okLis)
+	public static void query(String urlPage, ResponseListener respLis, Map<String, String> params, OkResponseListener okLis)
 	{
-		query(urlPage, params, respLis, okLis, null);
+		query(urlPage, respLis, params, okLis, null);
 	}
-	public static void query(String urlPage, Map<String, String> params, ResponseListener respLis, OkResponseListener okLis, ErrorResponseListener errLis)
+	public static void query(String urlPage, ResponseListener respLis, Map<String, String> params, OkResponseListener okLis, ErrorResponseListener errLis)
 	{
 		Map<String, String> headers = new HashMap<String, String>();
 		headers.put("Accept", "application/json");
@@ -212,10 +212,10 @@ public class DB
 	
 	public static void raw(final String query, ResponseListener respLis)
 	{
-		query(Config.DB_RAW_URL, new HashMap<String, String>()
+		query(Config.DB_RAW_URL, respLis, new HashMap<String, String>()
 		{{
 			put("query", query);
-		}}, respLis);
+		}});
 	}
 	
 }

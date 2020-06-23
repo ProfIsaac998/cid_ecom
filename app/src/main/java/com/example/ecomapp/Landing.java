@@ -32,11 +32,7 @@ public class Landing extends AppActivity
 		DB.init(this, Config.DB_KEY);
 		
 		// Test
-		/*DB.query("login", new HashMap<String, String>()
-		{{
-			put("username", "");
-			put("password", "");
-		}}, new ResponseListener()
+		/*DB.query("login", new ResponseListener()
 		{
 			@Override
 			public void onResponse(boolean ok, Object response)
@@ -49,7 +45,11 @@ public class Landing extends AppActivity
 				
 				startActivity(new Intent(activity, Login.class));
 			}
-		});*/
+		}, new HashMap<String, String>()
+		{{
+			put("username", "");
+			put("password", "");
+		}};*/
 		startActivity(new Intent(activity, Login.class));
 	}
 }
