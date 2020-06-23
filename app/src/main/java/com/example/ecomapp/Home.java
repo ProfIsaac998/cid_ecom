@@ -1,11 +1,14 @@
 package com.example.ecomapp;
 
 import android.app.Activity;
-import android.content.Intent;
-import android.support.constraint.ConstraintLayout;
-import android.support.v7.app.AppCompatActivity;
+
+import androidx.constraintlayout.widget.ConstraintLayout;
+import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.RecyclerView;
+
+import androidx.core.content.ContextCompat;
+import androidx.recyclerview.widget.DividerItemDecoration;
+import androidx.recyclerview.widget.RecyclerView;
 import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
@@ -103,7 +106,7 @@ public class Home extends AppActivity
 						try
 						{
 							RecyclerView rv = findViewById(R.id.prodListView);
-							prodListAdapter = new Home_ProductRVAdapter((JSONArray)resp.data);
+							prodListAdapter = new Home_ProductRVAdapter(rv, (JSONArray)resp.data);
 							rv.setAdapter(prodListAdapter);
 						}
 						catch(Exception e)

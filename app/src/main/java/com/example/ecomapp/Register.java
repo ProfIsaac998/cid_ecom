@@ -1,14 +1,11 @@
 package com.example.ecomapp;
 
 import android.content.Context;
-import android.support.constraint.ConstraintLayout;
-import android.support.v7.app.AppCompatActivity;
+import androidx.constraintlayout.widget.ConstraintLayout;
+import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
-import android.widget.Toast;
-
-import com.example.ecomapp.Data.GlobalData;
 
 public class Register extends AppActivity
 {

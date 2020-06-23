@@ -1,22 +1,12 @@
 package com.example.ecomapp;
 
 import android.app.Activity;
-import android.content.Context;
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 
 import com.example.ecomapp.Data.Config;
-import com.example.ecomapp.Data.GlobalData;
-import com.example.ecomapp.Helper.Crypt;
 import com.example.ecomapp.Helper.DB;
-import com.example.ecomapp.Helper.DB.Response;
-import com.example.ecomapp.Helper.DB.ResponseListener;
-
-import org.json.JSONObject;
-
-import java.util.HashMap;
 
 public class Landing extends AppActivity
 {

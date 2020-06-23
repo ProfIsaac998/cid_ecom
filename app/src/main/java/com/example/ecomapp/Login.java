@@ -1,13 +1,11 @@
 package com.example.ecomapp;
 
 import android.app.Activity;
-import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
-import android.provider.Settings;
-import android.support.constraint.ConstraintLayout;
-import android.support.v7.app.AlertDialog;
-import android.support.v7.app.AppCompatActivity;
+
+import androidx.constraintlayout.widget.ConstraintLayout;
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
@@ -74,7 +72,7 @@ public class Login extends AppActivity
 							//GlobalData.user = User.serialiseToObj((JSONObject)response.data);
 							GlobalData.accessToken = ((JSONObject)resp.data).getString("access_token");
 							DB.cryptKey = ((JSONObject)resp.data).getString("key");
-							MessageUI.toast("Logged in", Toast.LENGTH_LONG);
+							//MessageUI.toast("Logged in", Toast.LENGTH_LONG);
 							
 							activity.finish();
 							startActivity(new Intent(activity, Home.class).setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK));
