@@ -47,6 +47,11 @@ public class Login extends AppActivity
 		}
 	}
 	
+	public void btnAntiTampClicked(View v)
+	{
+		startActivity(new Intent(this, AntiTampering.class));
+	}
+	
 	public void btnLoginClicked(View v)
 	{
 		loadingOverlayShow("Logging in...");
