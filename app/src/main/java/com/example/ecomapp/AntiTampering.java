@@ -47,14 +47,14 @@ public class AntiTampering extends AppCompatActivity
 			
 			RequestQueue queue = null;
 			queue = Volley.newRequestQueue(this);
-			JsonObjectRequest req = new JsonObjectRequest(Request.Method.POST, "PAYMENT GATEWAY URL HERE",
+			JsonObjectRequest req = new JsonObjectRequest(Request.Method.POST, "https://www.ipay88.com/",
 					params,
 					new com.android.volley.Response.Listener<JSONObject>()
 					{
 						@Override
 						public void onResponse(JSONObject response)
 						{
-							Log.d("Response", response.toString());
+							//Log.d("Response", response.toString());
 						}
 					},
 					new com.android.volley.Response.ErrorListener()
